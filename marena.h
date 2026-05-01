@@ -29,7 +29,13 @@
     [ ]? Rename Page to Region?
  */
 
-#define DEFAULT_PAGE_SIZE 8196
+#define MA_DEFAULT_PAGE_SIZE 8196
+
+// should be enough for most systems. You can manually redefine it, if this alignment doesnt work for you
+#define MA_ALIGNMENT (sizeof(void*))
+
+#define MA_ALIGN(sz) ((sz + MA_ALIGNMENT - 1) & ~(MA_ALIGNMENT - 1))
+
 
 // pointer to that struct is actual start of page, usable memory is at &page + sizeof(Page)
 //  'free' contains start address of free memory in that page
@@ -56,7 +62,7 @@ Page* init_page(size_t size);
 // initializes arena on the heap
 Arena* arena_init_heap(size_t size);
 
-// allocates at least 'size' bytes within 'arena' memory
+// allocates at least 'size' aligned bytes within 'arena' memory
 void* arena_alloc(Arena* arena, size_t size);
 
 // Deallocates all pages in arena
@@ -97,19 +103,20 @@ Arena* arena_init_heap(size_t size)
 void* arena_alloc(Arena* arena, size_t size)
 {
     assert(arena != NULL);
+    size_t aligned_size = MA_ALIGN(size);
     Page* page = arena->end;
     Page* prev_page = NULL;
-    while (page != NULL && page->capacity + size > page->size) {
+    while (page != NULL && page->capacity + aligned_size > page->size) {
         prev_page = page;
         page = page->next;
     }
     // just allocate new page, if there are no free space left in pages
     if (page == NULL) {
         if (arena->page_size <= 0) {
-            arena->page_size = DEFAULT_PAGE_SIZE;
+            arena->page_size = MA_DEFAULT_PAGE_SIZE;
         }
-        size_t alloc_size = (size > arena->page_size) ? (size*2) : arena->page_size;    // requested size can be > page_size, in that case allocate 2x of requested size
-                                                                                        // TODO: update page_size if size > page_size ?
+        size_t alloc_size = (aligned_size > arena->page_size) ? (aligned_size*2) : arena->page_size;    // requested aligned_size can be > page_size, in that case allocate 2x of requested aligned_size
+                                                                                        // TODO: update page_size if aligned_size > page_size ?
         page = init_page(alloc_size);
         if (prev_page != NULL) {
             prev_page->next = page; 
@@ -123,9 +130,9 @@ void* arena_alloc(Arena* arena, size_t size)
     // Without this arena->end would never go forward (i.e. would always point to arena->start), if allocating after arena_reset()
     if (arena->end != page) { arena->end = page; }
 
-    page->capacity += size;
+    page->capacity += aligned_size;
     void* ret = page->start_free;
-    page->start_free = (char*)page->start_free + size;
+    page->start_free = (char*)page->start_free + aligned_size;
     return ret;
 }
 

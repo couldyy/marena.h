@@ -11,7 +11,7 @@ int main()
     Arena arena = { .page_size = 64 };
     //Arena arena = { .page_size = 512, .flags = 192};
     
-    int* arr = arena_alloc(&arena, sizeof(int) * N);
+    int* arr = arena_alloc(&arena, (sizeof(int)+1) * N);
     for(int i = 0; i < N; i++) {
         arr[i] = i;
     }
