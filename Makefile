@@ -1,10 +1,14 @@
 CC=gcc
 
 FLAGS=-Wall -Wextra -g
+BUILD_DIR=./build
 all: test_performance test
 
-test_performance: marena.h test_performance.c
-	$(CC) $(FLAGS) -o test_performance test_performance.c
+make_build_dir:
+	mkdir -p ./build
 
-test: marena.h test.c
-	$(CC) $(FLAGS) -o test test.c
+test_performance: make_build_dir marena.h test_performance.c
+	$(CC) $(FLAGS) -o $(BUILD_DIR)/test_performance test_performance.c
+
+test: make_build_dir marena.h test.c
+	$(CC) $(FLAGS) -o $(BUILD_DIR)/test test.c
