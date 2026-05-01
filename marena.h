@@ -118,8 +118,10 @@ void* arena_alloc(Arena* arena, size_t size)
         if (arena->start == NULL) {
             arena->start = page;
         }
-        arena->end = page;
     }
+    
+    // Without this arena->end would never go forward (i.e. would always point to arena->start), if allocating after arena_reset()
+    if (arena->end != page) { arena->end = page; }
 
     page->capacity += size;
     void* ret = page->start_free;
