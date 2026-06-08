@@ -1,9 +1,11 @@
 #ifndef MARENA_H
 #define MARENA_H
 
-#include <assert.h>
-#include <stdint.h>
-#include <stdlib.h>
+// TODO: get rid of all includes, and include them only when some macro is defined
+#include <assert.h>     // assert()
+#include <stdint.h>     
+#include <stdlib.h>     // malloc()
+#include <string.h>     // memcpy()
 
 /*
  TODO:
@@ -36,6 +38,7 @@
 
 #define MA_ALIGN(sz) ((sz + MA_ALIGNMENT - 1) & ~(MA_ALIGNMENT - 1))
 
+#define MA_INT_ZEROED 0x1
 
 // pointer to that struct is actual start of page, usable memory is at &page + sizeof(Page)
 //  'free' contains start address of free memory in that page
@@ -45,6 +48,8 @@ typedef struct Page {
     size_t size;        // bytes
 
     struct Page* next;
+    //int is_zeroed;    // TODO: implement that field and check for it in arena_*_zero() functions, 
+                        // to reduce memset() functions
 } Page;
 
 typedef struct {
@@ -64,6 +69,9 @@ Arena* arena_init_heap(size_t size);
 
 // allocates at least 'size' aligned bytes within 'arena' memory
 void* arena_alloc(Arena* arena, size_t size);
+
+// allocates at least 'size' aligned bytes within 'arena' memory, initialized to 0
+//void* arena_alloc_zero(Arena* arena, size_t size);
 
 // Deallocates all pages in arena
 // Note: does NOT deallocate 'arena' struct itself
@@ -99,8 +107,13 @@ Arena* arena_init_heap(size_t size)
     arena->page_size = size;
     return arena; 
 }
+#define arena_alloc(arena, size) arena__alloc(arena, size, 0);
 
-void* arena_alloc(Arena* arena, size_t size)
+// TODO: performance is 10x worse then in arena_alloc(), optimise it
+#define arena_alloc_zero(arena, size) arena__alloc(arena, size, MA_INT_ZEROED);
+
+// allocate WITH flags
+void* arena__alloc(Arena* arena, size_t size, int flags)
 {
     assert(arena != NULL);
     size_t aligned_size = MA_ALIGN(size);
@@ -132,6 +145,9 @@ void* arena_alloc(Arena* arena, size_t size)
 
     page->capacity += aligned_size;
     void* ret = page->start_free;
+    if (flags & MA_INT_ZEROED) {
+        memset(ret, 0, aligned_size);
+    }
     page->start_free = (char*)page->start_free + aligned_size;
     return ret;
 }
@@ -150,17 +166,24 @@ void arena_free(Arena* arena)
     arena->end = NULL;
 } 
 
-void arena_reset(Arena* arena)
+// reset WITH flag
+void arena__reset_flag(Arena* arena, int flags)
 {
     assert(arena != NULL);
-    Page* current_page = arena->start;
-    while (current_page != NULL) {
-        current_page->capacity = 0;
-        current_page->start_free = current_page + sizeof(Page);     // reset free ptr to begining
+    for (Page* page = arena->start; page != NULL; page = page->next) {
+        if (flags & MA_INT_ZEROED) {
+            memset((char*)page + sizeof(Page), 0, page->capacity);  // memset only capacity bytes
+            //memset((char*)page + sizeof(Page), 0, page->size);  // TODO: test this, does performance and quality differ?
+        }
 
-        current_page = current_page->next;
+        page->capacity = 0;
+        page->start_free = page + sizeof(Page);     // reset free ptr to begining
     }
     arena->end = arena->start;
 }
+
+#define arena_reset(arena) arena__reset_flag(arena, 0)
+
+#define arena_reset_zero(arena) arena__reset_flag(arena, MA_INT_ZEROED)
 
 #endif // MARENA_IMPLEMENTATION
