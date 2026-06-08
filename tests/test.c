@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MARENA_IMPLEMENTATION
-#include "marena.h" 
+#include "../marena.h" 
 
 #define N 10
 
