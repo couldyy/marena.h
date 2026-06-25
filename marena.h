@@ -31,6 +31,15 @@
     [ ]? Rename Page to Region?
  */
 
+
+//#define MARENA_DEBUG
+
+#ifdef MARENA_DEBUG
+#define MARENA_INIT_VALUE 0xcd
+#else
+#define MARENA_INIT_VALUE 0
+#endif
+
 #ifndef MARENA_DEFAULT_PAGE_SIZE 
 #define MARENA_DEFAULT_PAGE_SIZE 8196
 #endif
@@ -164,12 +173,12 @@ void* arena__alloc_flags(Arena* arena, size_t size, int flags)
     // just allocate new page, if there are no free space left in pages
     if (page == NULL) {
         if (arena->flags & MARENA_O_ARENA_STATIC) {
-#ifdef MARENA_STATIC_RETURN_NULL_ON_FULL
+        #ifdef MARENA_STATIC_RETURN_NULL_ON_FULL
             return NULL;
-#else
+        #else
             fprintf(stderr, "Not enough memory in the arena for requested size (Arena set to STATIC)\n");
             exit(1);
-#endif //MARENA_STATIC_DONT_ABORT_ON_FULL
+        #endif //MARENA_STATIC_DONT_ABORT_ON_FULL
 
         }
 
@@ -179,7 +188,7 @@ void* arena__alloc_flags(Arena* arena, size_t size, int flags)
             arena->page_size *= MARENA_DYNAMIC_PAGE_SIZE_GROW_FACTOR;  // TODO multiplication factor?
 
         #ifdef MARENA_DEBUG
-            arena->_page_size_grow_cnt++;
+            arena->_page_size_grows_cnt++;
         #endif
 
         }
@@ -200,7 +209,7 @@ alloc:
     page->allocated += size_aligned;
     void* ret = page->start_free;
     if (flags & MARENA_INTERNAL_ZEROED) {
-        memset(ret, 0, size_aligned);
+        memset(ret, MARENA_INIT_VALUE, size_aligned);
     }
     page->start_free = (char*)page->start_free + size_aligned;
     return ret;
@@ -227,8 +236,8 @@ void arena__reset_flag(Arena* arena, int flags)
     for (Page* page = arena->start; page != NULL; page = page->next) {
         if (flags & MARENA_INTERNAL_ZEROED) {
             // FIXME: doesnt work for some reason
-            //memset((char*)page + sizeof(Page), 0, page->allocated);  // memset only allocated bytes
-            memset((char*)page + sizeof(Page), 0, page->size);  // TODO: test this, does performance and quality differ?
+            //memset((char*)page + sizeof(Page), MARENA_INIT_VALUE, page->allocated);  // memset only allocated bytes
+            memset((char*)page + sizeof(Page), MARENA_INIT_VALUE, page->size);  // TODO: test this, does performance and quality differ?
         }
 
         page->allocated = 0;

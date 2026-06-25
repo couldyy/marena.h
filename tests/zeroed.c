@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MARENA_IMPLEMENTATION
+//#define MARENA_DEBUG
 #include "../marena.h" 
 
 #define N 10
@@ -8,7 +9,7 @@ void fill_with_garbage(Arena* arena, size_t n)
 {
     char* addr = arena_alloc(arena, n);
     for (size_t i = 0; i < n; i++) {
-        addr[i] = 0xcd;
+        addr[i] = 0xdc; // So not to collide with init value in MARENA_DEBUG (which is 0xcd)
     }
 }
 
