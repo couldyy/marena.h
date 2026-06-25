@@ -36,7 +36,7 @@ int main()
 
     size_t init_page_size = 2560;
     arena_dynamic_page_size.page_size = init_page_size;
-    arena_dynamic_page_size.flags = MA_O_ARENA_DYNAMIC | MA_O_DYNAMIC_PAGE_SIZE;
+    arena_dynamic_page_size.flags = MARENA_O_ARENA_DYNAMIC | MARENA_O_DYNAMIC_PAGE_SIZE;
 
     int n_allocs = get_n_allocs(arena_dynamic_page_size.page_size, alloc_size);
     if (n_allocs <= 0) {
@@ -54,7 +54,7 @@ int main()
     printf("Arena dynamic\n");
     Arena arena_dynamic = {0};
     arena_dynamic.page_size = 256;
-    arena_dynamic.flags = MA_O_ARENA_DYNAMIC;
+    arena_dynamic.flags = MARENA_O_ARENA_DYNAMIC;
 
     int allocated = allocate(&arena_dynamic);
     //printf("allocated: %zu, page_size: %zu\n", allocated, arena_dynamic.page_size);
@@ -73,7 +73,7 @@ int main()
 
     Arena arena_static = {0};
     arena_static.page_size = 256;
-    arena_static.flags = MA_O_ARENA_STATIC;
+    arena_static.flags = MARENA_O_ARENA_STATIC;
     
     allocated = allocate(&arena_static);
     if (allocated < 0) {
