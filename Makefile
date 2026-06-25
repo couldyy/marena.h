@@ -3,9 +3,16 @@ CC=gcc
 FLAGS=-Wall -Wextra -g -O0
 BUILD_DIR=./build
 TESTS_DIR=./tests
-all: test_performance test
+EXAMPLES_DIR=./examples
+
+all: test_performance tests examples
 
 tests: test_performance test zeroed
+
+examples: make_build_dir usage
+
+usage: make_build_dir $(EXAMPLES_DIR)/usage.c
+	$(CC) $(FLAGS) -o $(BUILD_DIR)/usage $(EXAMPLES_DIR)/usage.c
 
 make_build_dir:
 	mkdir -p ./build

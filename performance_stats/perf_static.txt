@@ -1,0 +1,443 @@
+
+
+->> DYNAMIC SIZE ALLOCAION TEST <<-
+
+========= AVG alloc (64)=================
+N allocs: 1000000, page_size: 256, total: 60.679219 Mb(aligned: 64.045723 Mb), avg_alloc_size: 63.626773, ===>   68.732000 ms
+N allocs: 1000000, page_size: 512, total: 60.560081 Mb(aligned: 63.926186 Mb), avg_alloc_size: 63.501848, ===>   11.288000 ms
+N allocs: 1000000, page_size: 1024, total: 60.559729 Mb(aligned: 63.921692 Mb), avg_alloc_size: 63.501478, ===>   8.731000 ms
+N allocs: 1000000, page_size: 2048, total: 60.517147 Mb(aligned: 63.877159 Mb), avg_alloc_size: 63.456828, ===>   6.586000 ms
+N allocs: 1000000, page_size: 4096, total: 60.495574 Mb(aligned: 63.859795 Mb), avg_alloc_size: 63.434207, ===>   5.418000 ms
+N allocs: 1000000, page_size: 8192, total: 60.585575 Mb(aligned: 63.952080 Mb), avg_alloc_size: 63.528580, ===>   4.926000 ms
+N allocs: 1000000, page_size: 16384, total: 60.553353 Mb(aligned: 63.920952 Mb), avg_alloc_size: 63.494793, ===>   4.668000 ms
+N allocs: 1000000, page_size: 32768, total: 60.515781 Mb(aligned: 63.877510 Mb), avg_alloc_size: 63.455396, ===>   4.607000 ms
+N allocs: 1000000, page_size: 65536, total: 60.562783 Mb(aligned: 63.924049 Mb), avg_alloc_size: 63.504681, ===>   4.472000 ms
+N allocs: 1000000, page_size: 131072, total: 60.520487 Mb(aligned: 63.885193 Mb), avg_alloc_size: 63.460330, ===>   4.430000 ms
+N allocs: 1000000, page_size: 262144, total: 60.504126 Mb(aligned: 63.865929 Mb), avg_alloc_size: 63.443174, ===>   4.493000 ms
+N allocs: 1000000, page_size: 524288, total: 60.480128 Mb(aligned: 63.845200 Mb), avg_alloc_size: 63.418011, ===>   4.483000 ms
+N allocs: 1000000, page_size: 1048576, total: 60.559861 Mb(aligned: 63.925919 Mb), avg_alloc_size: 63.501617, ===>   4.527000 ms
+N allocs: 1000000, page_size: 2097152, total: 60.640170 Mb(aligned: 63.997780 Mb), avg_alloc_size: 63.585827, ===>   4.503000 ms
+N allocs: 1000000, page_size: 4194304, total: 60.618897 Mb(aligned: 63.980728 Mb), avg_alloc_size: 63.563521, ===>   4.594000 ms
+N allocs: 1000000, page_size: 8388608, total: 60.552642 Mb(aligned: 63.914955 Mb), avg_alloc_size: 63.494047, ===>   4.431000 ms
+N allocs: 1000000, page_size: 16777216, total: 60.528454 Mb(aligned: 63.890617 Mb), avg_alloc_size: 63.468684, ===>   4.399000 ms
+N allocs: 1000000, page_size: 33554432, total: 60.589939 Mb(aligned: 63.952690 Mb), avg_alloc_size: 63.533156, ===>   4.467000 ms
+N allocs: 1000000, page_size: 67108864, total: 60.561615 Mb(aligned: 63.923546 Mb), avg_alloc_size: 63.503456, ===>   4.411000 ms
+
+========= AVG alloc (114)=================
+N allocs: 1000000, page_size: 256, total: 108.132250 Mb(aligned: 111.485390 Mb), avg_alloc_size: 113.384882, ===>   76.283000 ms
+N allocs: 1000000, page_size: 512, total: 108.093913 Mb(aligned: 111.445862 Mb), avg_alloc_size: 113.344683, ===>   47.500000 ms
+N allocs: 1000000, page_size: 1024, total: 108.211501 Mb(aligned: 111.563164 Mb), avg_alloc_size: 113.467983, ===>   31.476000 ms
+N allocs: 1000000, page_size: 2048, total: 108.232528 Mb(aligned: 111.584740 Mb), avg_alloc_size: 113.490031, ===>   24.461000 ms
+N allocs: 1000000, page_size: 4096, total: 108.367942 Mb(aligned: 111.719864 Mb), avg_alloc_size: 113.632023, ===>   17.998000 ms
+N allocs: 1000000, page_size: 8192, total: 108.230685 Mb(aligned: 111.582161 Mb), avg_alloc_size: 113.488099, ===>   5.263000 ms
+N allocs: 1000000, page_size: 16384, total: 108.252550 Mb(aligned: 111.604500 Mb), avg_alloc_size: 113.511026, ===>   4.968000 ms
+N allocs: 1000000, page_size: 32768, total: 108.348714 Mb(aligned: 111.704674 Mb), avg_alloc_size: 113.611861, ===>   6.265000 ms
+N allocs: 1000000, page_size: 65536, total: 108.223927 Mb(aligned: 111.575462 Mb), avg_alloc_size: 113.481012, ===>   6.591000 ms
+N allocs: 1000000, page_size: 131072, total: 107.994190 Mb(aligned: 111.350159 Mb), avg_alloc_size: 113.240116, ===>   5.341000 ms
+N allocs: 1000000, page_size: 262144, total: 108.161771 Mb(aligned: 111.514549 Mb), avg_alloc_size: 113.415837, ===>   4.981000 ms
+N allocs: 1000000, page_size: 524288, total: 108.248926 Mb(aligned: 111.605247 Mb), avg_alloc_size: 113.507226, ===>   4.732000 ms
+N allocs: 1000000, page_size: 1048576, total: 108.157128 Mb(aligned: 111.509834 Mb), avg_alloc_size: 113.410969, ===>   4.632000 ms
+N allocs: 1000000, page_size: 2097152, total: 108.230520 Mb(aligned: 111.581482 Mb), avg_alloc_size: 113.487926, ===>   4.609000 ms
+N allocs: 1000000, page_size: 4194304, total: 108.204119 Mb(aligned: 111.558823 Mb), avg_alloc_size: 113.460242, ===>   4.462000 ms
+N allocs: 1000000, page_size: 8388608, total: 108.326744 Mb(aligned: 111.681488 Mb), avg_alloc_size: 113.588824, ===>   4.465000 ms
+N allocs: 1000000, page_size: 16777216, total: 108.271521 Mb(aligned: 111.625206 Mb), avg_alloc_size: 113.530918, ===>   4.503000 ms
+N allocs: 1000000, page_size: 33554432, total: 108.294210 Mb(aligned: 111.644234 Mb), avg_alloc_size: 113.554710, ===>   4.405000 ms
+N allocs: 1000000, page_size: 67108864, total: 107.876064 Mb(aligned: 111.226730 Mb), avg_alloc_size: 113.116252, ===>   4.404000 ms
+
+========= AVG alloc (164)=================
+N allocs: 1000000, page_size: 256, total: 155.976985 Mb(aligned: 159.325500 Mb), avg_alloc_size: 163.553723, ===>   116.858000 ms
+N allocs: 1000000, page_size: 512, total: 155.938415 Mb(aligned: 159.283333 Mb), avg_alloc_size: 163.513279, ===>   92.343000 ms
+N allocs: 1000000, page_size: 1024, total: 156.087198 Mb(aligned: 159.434837 Mb), avg_alloc_size: 163.669290, ===>   61.705000 ms
+N allocs: 1000000, page_size: 2048, total: 155.771809 Mb(aligned: 159.119576 Mb), avg_alloc_size: 163.338580, ===>   53.270000 ms
+N allocs: 1000000, page_size: 4096, total: 155.807096 Mb(aligned: 159.152985 Mb), avg_alloc_size: 163.375582, ===>   41.600000 ms
+N allocs: 1000000, page_size: 8192, total: 155.978104 Mb(aligned: 159.327187 Mb), avg_alloc_size: 163.554896, ===>   24.497000 ms
+N allocs: 1000000, page_size: 16384, total: 155.598865 Mb(aligned: 158.943596 Mb), avg_alloc_size: 163.157235, ===>   13.737000 ms
+N allocs: 1000000, page_size: 32768, total: 155.796049 Mb(aligned: 159.144249 Mb), avg_alloc_size: 163.363998, ===>   9.525000 ms
+N allocs: 1000000, page_size: 65536, total: 155.854266 Mb(aligned: 159.199791 Mb), avg_alloc_size: 163.425043, ===>   7.352000 ms
+N allocs: 1000000, page_size: 131072, total: 155.989755 Mb(aligned: 159.332542 Mb), avg_alloc_size: 163.567113, ===>   5.969000 ms
+N allocs: 1000000, page_size: 262144, total: 155.666006 Mb(aligned: 159.012108 Mb), avg_alloc_size: 163.227638, ===>   5.411000 ms
+N allocs: 1000000, page_size: 524288, total: 156.115689 Mb(aligned: 159.463783 Mb), avg_alloc_size: 163.699165, ===>   5.006000 ms
+N allocs: 1000000, page_size: 1048576, total: 155.939897 Mb(aligned: 159.285843 Mb), avg_alloc_size: 163.514833, ===>   4.802000 ms
+N allocs: 1000000, page_size: 2097152, total: 156.306564 Mb(aligned: 159.657120 Mb), avg_alloc_size: 163.899312, ===>   4.612000 ms
+N allocs: 1000000, page_size: 4194304, total: 155.978498 Mb(aligned: 159.326271 Mb), avg_alloc_size: 163.555310, ===>   4.506000 ms
+N allocs: 1000000, page_size: 8388608, total: 156.227520 Mb(aligned: 159.577553 Mb), avg_alloc_size: 163.816428, ===>   4.556000 ms
+N allocs: 1000000, page_size: 16777216, total: 155.744103 Mb(aligned: 159.095802 Mb), avg_alloc_size: 163.309529, ===>   4.439000 ms
+N allocs: 1000000, page_size: 33554432, total: 156.090239 Mb(aligned: 159.440193 Mb), avg_alloc_size: 163.672478, ===>   4.438000 ms
+N allocs: 1000000, page_size: 67108864, total: 155.809640 Mb(aligned: 159.161095 Mb), avg_alloc_size: 163.378249, ===>   4.408000 ms
+
+========= AVG alloc (214)=================
+N allocs: 1000000, page_size: 256, total: 203.110815 Mb(aligned: 206.460716 Mb), avg_alloc_size: 212.977126, ===>   148.772000 ms
+N allocs: 1000000, page_size: 512, total: 203.431844 Mb(aligned: 206.780434 Mb), avg_alloc_size: 213.313749, ===>   129.142000 ms
+N allocs: 1000000, page_size: 1024, total: 203.704460 Mb(aligned: 207.050682 Mb), avg_alloc_size: 213.599608, ===>   99.030000 ms
+N allocs: 1000000, page_size: 2048, total: 203.472027 Mb(aligned: 206.820938 Mb), avg_alloc_size: 213.355884, ===>   79.011000 ms
+N allocs: 1000000, page_size: 4096, total: 203.542705 Mb(aligned: 206.888237 Mb), avg_alloc_size: 213.429995, ===>   66.616000 ms
+N allocs: 1000000, page_size: 8192, total: 203.690899 Mb(aligned: 207.036964 Mb), avg_alloc_size: 213.585388, ===>   35.270000 ms
+N allocs: 1000000, page_size: 16384, total: 203.894738 Mb(aligned: 207.240768 Mb), avg_alloc_size: 213.799129, ===>   20.017000 ms
+N allocs: 1000000, page_size: 32768, total: 203.396079 Mb(aligned: 206.742668 Mb), avg_alloc_size: 213.276247, ===>   14.764000 ms
+N allocs: 1000000, page_size: 65536, total: 203.626779 Mb(aligned: 206.973068 Mb), avg_alloc_size: 213.518153, ===>   8.874000 ms
+N allocs: 1000000, page_size: 131072, total: 203.427073 Mb(aligned: 206.772377 Mb), avg_alloc_size: 213.308746, ===>   6.877000 ms
+N allocs: 1000000, page_size: 262144, total: 203.362216 Mb(aligned: 206.705040 Mb), avg_alloc_size: 213.240739, ===>   5.913000 ms
+N allocs: 1000000, page_size: 524288, total: 203.457887 Mb(aligned: 206.804230 Mb), avg_alloc_size: 213.341057, ===>   5.468000 ms
+N allocs: 1000000, page_size: 1048576, total: 203.579471 Mb(aligned: 206.929840 Mb), avg_alloc_size: 213.468547, ===>   4.876000 ms
+N allocs: 1000000, page_size: 2097152, total: 203.475337 Mb(aligned: 206.820999 Mb), avg_alloc_size: 213.359355, ===>   4.675000 ms
+N allocs: 1000000, page_size: 4194304, total: 203.632299 Mb(aligned: 206.976540 Mb), avg_alloc_size: 213.523942, ===>   4.653000 ms
+N allocs: 1000000, page_size: 8388608, total: 203.664826 Mb(aligned: 207.011658 Mb), avg_alloc_size: 213.558049, ===>   4.474000 ms
+N allocs: 1000000, page_size: 16777216, total: 203.957720 Mb(aligned: 207.305267 Mb), avg_alloc_size: 213.865170, ===>   4.449000 ms
+N allocs: 1000000, page_size: 33554432, total: 203.655521 Mb(aligned: 207.005112 Mb), avg_alloc_size: 213.548292, ===>   4.426000 ms
+N allocs: 1000000, page_size: 67108864, total: 203.746086 Mb(aligned: 207.091492 Mb), avg_alloc_size: 213.643256, ===>   4.500000 ms
+
+========= AVG alloc (264)=================
+N allocs: 1000000, page_size: 256, total: 251.031242 Mb(aligned: 254.372948 Mb), avg_alloc_size: 263.225336, ===>   181.714000 ms
+N allocs: 1000000, page_size: 512, total: 250.817403 Mb(aligned: 254.158455 Mb), avg_alloc_size: 263.001109, ===>   168.055000 ms
+N allocs: 1000000, page_size: 1024, total: 251.709861 Mb(aligned: 255.051582 Mb), avg_alloc_size: 263.936919, ===>   137.030000 ms
+N allocs: 1000000, page_size: 2048, total: 250.798281 Mb(aligned: 254.145699 Mb), avg_alloc_size: 262.981058, ===>   108.836000 ms
+N allocs: 1000000, page_size: 4096, total: 250.986778 Mb(aligned: 254.334656 Mb), avg_alloc_size: 263.178712, ===>   93.540000 ms
+N allocs: 1000000, page_size: 8192, total: 251.447073 Mb(aligned: 254.790070 Mb), avg_alloc_size: 263.661366, ===>   46.911000 ms
+N allocs: 1000000, page_size: 16384, total: 251.211497 Mb(aligned: 254.555443 Mb), avg_alloc_size: 263.414347, ===>   25.634000 ms
+N allocs: 1000000, page_size: 32768, total: 251.479636 Mb(aligned: 254.821846 Mb), avg_alloc_size: 263.695511, ===>   16.064000 ms
+N allocs: 1000000, page_size: 65536, total: 251.062600 Mb(aligned: 254.404388 Mb), avg_alloc_size: 263.258217, ===>   10.412000 ms
+N allocs: 1000000, page_size: 131072, total: 251.260036 Mb(aligned: 254.601997 Mb), avg_alloc_size: 263.465243, ===>   7.837000 ms
+N allocs: 1000000, page_size: 262144, total: 251.242236 Mb(aligned: 254.583954 Mb), avg_alloc_size: 263.446579, ===>   6.764000 ms
+N allocs: 1000000, page_size: 524288, total: 251.118393 Mb(aligned: 254.462341 Mb), avg_alloc_size: 263.316720, ===>   5.622000 ms
+N allocs: 1000000, page_size: 1048576, total: 250.942126 Mb(aligned: 254.289650 Mb), avg_alloc_size: 263.131891, ===>   5.060000 ms
+N allocs: 1000000, page_size: 2097152, total: 251.391772 Mb(aligned: 254.733681 Mb), avg_alloc_size: 263.603379, ===>   7.056000 ms
+N allocs: 1000000, page_size: 4194304, total: 250.885178 Mb(aligned: 254.228935 Mb), avg_alloc_size: 263.072176, ===>   4.615000 ms
+N allocs: 1000000, page_size: 8388608, total: 251.495828 Mb(aligned: 254.841438 Mb), avg_alloc_size: 263.712489, ===>   4.487000 ms
+N allocs: 1000000, page_size: 16777216, total: 251.146556 Mb(aligned: 254.493477 Mb), avg_alloc_size: 263.346251, ===>   4.432000 ms
+N allocs: 1000000, page_size: 33554432, total: 251.411819 Mb(aligned: 254.755547 Mb), avg_alloc_size: 263.624399, ===>   4.556000 ms
+N allocs: 1000000, page_size: 67108864, total: 250.958887 Mb(aligned: 254.302917 Mb), avg_alloc_size: 263.149466, ===>   4.413000 ms
+
+========= AVG alloc (314)=================
+N allocs: 1000000, page_size: 256, total: 298.814064 Mb(aligned: 302.158234 Mb), avg_alloc_size: 313.329256, ===>   213.147000 ms
+N allocs: 1000000, page_size: 512, total: 298.954417 Mb(aligned: 302.300293 Mb), avg_alloc_size: 313.476427, ===>   203.118000 ms
+N allocs: 1000000, page_size: 1024, total: 299.649946 Mb(aligned: 302.991798 Mb), avg_alloc_size: 314.205742, ===>   172.416000 ms
+N allocs: 1000000, page_size: 2048, total: 299.175118 Mb(aligned: 302.521332 Mb), avg_alloc_size: 313.707849, ===>   139.502000 ms
+N allocs: 1000000, page_size: 4096, total: 299.209700 Mb(aligned: 302.556198 Mb), avg_alloc_size: 313.744110, ===>   118.325000 ms
+N allocs: 1000000, page_size: 8192, total: 298.632512 Mb(aligned: 301.970985 Mb), avg_alloc_size: 313.138885, ===>   59.231000 ms
+N allocs: 1000000, page_size: 16384, total: 298.899748 Mb(aligned: 302.241783 Mb), avg_alloc_size: 313.419102, ===>   30.851000 ms
+N allocs: 1000000, page_size: 32768, total: 299.309361 Mb(aligned: 302.648788 Mb), avg_alloc_size: 313.848612, ===>   19.000000 ms
+N allocs: 1000000, page_size: 65536, total: 298.964217 Mb(aligned: 302.309235 Mb), avg_alloc_size: 313.486703, ===>   11.871000 ms
+N allocs: 1000000, page_size: 131072, total: 298.785999 Mb(aligned: 302.130585 Mb), avg_alloc_size: 313.299828, ===>   8.601000 ms
+N allocs: 1000000, page_size: 262144, total: 298.658190 Mb(aligned: 302.001656 Mb), avg_alloc_size: 313.165810, ===>   7.384000 ms
+N allocs: 1000000, page_size: 524288, total: 298.624872 Mb(aligned: 301.966553 Mb), avg_alloc_size: 313.130874, ===>   5.890000 ms
+N allocs: 1000000, page_size: 1048576, total: 298.401895 Mb(aligned: 301.745834 Mb), avg_alloc_size: 312.897065, ===>   5.140000 ms
+N allocs: 1000000, page_size: 2097152, total: 299.150670 Mb(aligned: 302.492096 Mb), avg_alloc_size: 313.682213, ===>   5.037000 ms
+N allocs: 1000000, page_size: 4194304, total: 299.503301 Mb(aligned: 302.847092 Mb), avg_alloc_size: 314.051973, ===>   4.654000 ms
+N allocs: 1000000, page_size: 8388608, total: 298.766109 Mb(aligned: 302.113533 Mb), avg_alloc_size: 313.278971, ===>   4.495000 ms
+N allocs: 1000000, page_size: 16777216, total: 299.340550 Mb(aligned: 302.683167 Mb), avg_alloc_size: 313.881317, ===>   4.452000 ms
+N allocs: 1000000, page_size: 33554432, total: 299.125216 Mb(aligned: 302.466934 Mb), avg_alloc_size: 313.655522, ===>   4.511000 ms
+N allocs: 1000000, page_size: 67108864, total: 298.571218 Mb(aligned: 301.918068 Mb), avg_alloc_size: 313.074614, ===>   4.419000 ms
+
+========= AVG alloc (364)=================
+N allocs: 1000000, page_size: 256, total: 347.077472 Mb(aligned: 350.418053 Mb), avg_alloc_size: 363.937107, ===>   246.446000 ms
+N allocs: 1000000, page_size: 512, total: 346.063246 Mb(aligned: 349.406029 Mb), avg_alloc_size: 362.873614, ===>   234.274000 ms
+N allocs: 1000000, page_size: 1024, total: 346.544485 Mb(aligned: 349.886574 Mb), avg_alloc_size: 363.378230, ===>   206.005000 ms
+N allocs: 1000000, page_size: 2048, total: 346.611189 Mb(aligned: 349.951775 Mb), avg_alloc_size: 363.448174, ===>   168.667000 ms
+N allocs: 1000000, page_size: 4096, total: 346.882789 Mb(aligned: 350.221954 Mb), avg_alloc_size: 363.732967, ===>   143.786000 ms
+N allocs: 1000000, page_size: 8192, total: 346.757767 Mb(aligned: 350.102165 Mb), avg_alloc_size: 363.601872, ===>   71.961000 ms
+N allocs: 1000000, page_size: 16384, total: 346.760975 Mb(aligned: 350.103363 Mb), avg_alloc_size: 363.605236, ===>   37.019000 ms
+N allocs: 1000000, page_size: 32768, total: 346.747684 Mb(aligned: 350.093643 Mb), avg_alloc_size: 363.591300, ===>   22.363000 ms
+N allocs: 1000000, page_size: 65536, total: 346.416085 Mb(aligned: 349.761681 Mb), avg_alloc_size: 363.243593, ===>   13.464000 ms
+N allocs: 1000000, page_size: 131072, total: 346.081718 Mb(aligned: 349.426613 Mb), avg_alloc_size: 362.892984, ===>   9.598000 ms
+N allocs: 1000000, page_size: 262144, total: 346.927905 Mb(aligned: 350.271690 Mb), avg_alloc_size: 363.780275, ===>   7.703000 ms
+N allocs: 1000000, page_size: 524288, total: 347.163602 Mb(aligned: 350.505753 Mb), avg_alloc_size: 364.027421, ===>   6.051000 ms
+N allocs: 1000000, page_size: 1048576, total: 347.165129 Mb(aligned: 350.506218 Mb), avg_alloc_size: 364.029022, ===>   5.252000 ms
+N allocs: 1000000, page_size: 2097152, total: 346.668727 Mb(aligned: 350.013412 Mb), avg_alloc_size: 363.508507, ===>   5.110000 ms
+N allocs: 1000000, page_size: 4194304, total: 347.223072 Mb(aligned: 350.565895 Mb), avg_alloc_size: 364.089780, ===>   4.663000 ms
+N allocs: 1000000, page_size: 8388608, total: 346.381001 Mb(aligned: 349.722198 Mb), avg_alloc_size: 363.206804, ===>   4.522000 ms
+N allocs: 1000000, page_size: 16777216, total: 346.957295 Mb(aligned: 350.297600 Mb), avg_alloc_size: 363.811093, ===>   4.477000 ms
+N allocs: 1000000, page_size: 33554432, total: 347.179452 Mb(aligned: 350.518951 Mb), avg_alloc_size: 364.044041, ===>   4.507000 ms
+N allocs: 1000000, page_size: 67108864, total: 346.338442 Mb(aligned: 349.681931 Mb), avg_alloc_size: 363.162178, ===>   4.423000 ms
+
+========= AVG alloc (414)=================
+N allocs: 1000000, page_size: 256, total: 393.960970 Mb(aligned: 397.301826 Mb), avg_alloc_size: 413.098018, ===>   273.914000 ms
+N allocs: 1000000, page_size: 512, total: 394.416079 Mb(aligned: 397.765060 Mb), avg_alloc_size: 413.575234, ===>   267.994000 ms
+N allocs: 1000000, page_size: 1024, total: 393.940609 Mb(aligned: 397.282066 Mb), avg_alloc_size: 413.076668, ===>   238.487000 ms
+N allocs: 1000000, page_size: 2048, total: 394.376794 Mb(aligned: 397.720337 Mb), avg_alloc_size: 413.534041, ===>   205.612000 ms
+N allocs: 1000000, page_size: 4096, total: 393.496241 Mb(aligned: 396.836700 Mb), avg_alloc_size: 412.610714, ===>   174.095000 ms
+N allocs: 1000000, page_size: 8192, total: 394.823084 Mb(aligned: 398.164162 Mb), avg_alloc_size: 414.002010, ===>   87.102000 ms
+N allocs: 1000000, page_size: 16384, total: 394.577654 Mb(aligned: 397.918121 Mb), avg_alloc_size: 413.744658, ===>   47.858000 ms
+N allocs: 1000000, page_size: 32768, total: 395.468312 Mb(aligned: 398.807076 Mb), avg_alloc_size: 414.678581, ===>   25.394000 ms
+N allocs: 1000000, page_size: 65536, total: 393.823557 Mb(aligned: 397.164581 Mb), avg_alloc_size: 412.953930, ===>   14.954000 ms
+N allocs: 1000000, page_size: 131072, total: 393.781616 Mb(aligned: 397.122688 Mb), avg_alloc_size: 412.909952, ===>   10.356000 ms
+N allocs: 1000000, page_size: 262144, total: 394.036242 Mb(aligned: 397.378136 Mb), avg_alloc_size: 413.176947, ===>   8.294000 ms
+N allocs: 1000000, page_size: 524288, total: 394.095067 Mb(aligned: 397.435219 Mb), avg_alloc_size: 413.238629, ===>   6.350000 ms
+N allocs: 1000000, page_size: 1048576, total: 393.867567 Mb(aligned: 397.208443 Mb), avg_alloc_size: 413.000078, ===>   5.400000 ms
+N allocs: 1000000, page_size: 2097152, total: 394.496893 Mb(aligned: 397.837257 Mb), avg_alloc_size: 413.659974, ===>   5.207000 ms
+N allocs: 1000000, page_size: 4194304, total: 393.782726 Mb(aligned: 397.121933 Mb), avg_alloc_size: 412.911116, ===>   4.723000 ms
+N allocs: 1000000, page_size: 8388608, total: 394.124209 Mb(aligned: 397.464401 Mb), avg_alloc_size: 413.269187, ===>   4.542000 ms
+N allocs: 1000000, page_size: 16777216, total: 394.435918 Mb(aligned: 397.775810 Mb), avg_alloc_size: 413.596037, ===>   4.464000 ms
+N allocs: 1000000, page_size: 33554432, total: 394.623467 Mb(aligned: 397.965172 Mb), avg_alloc_size: 413.792697, ===>   4.569000 ms
+N allocs: 1000000, page_size: 67108864, total: 394.936818 Mb(aligned: 398.281235 Mb), avg_alloc_size: 414.121269, ===>   4.453000 ms
+
+========= AVG alloc (464)=================
+N allocs: 1000000, page_size: 256, total: 442.049289 Mb(aligned: 445.393600 Mb), avg_alloc_size: 463.522275, ===>   301.515000 ms
+N allocs: 1000000, page_size: 512, total: 441.893323 Mb(aligned: 445.234253 Mb), avg_alloc_size: 463.358733, ===>   290.337000 ms
+N allocs: 1000000, page_size: 1024, total: 442.264850 Mb(aligned: 445.608681 Mb), avg_alloc_size: 463.748307, ===>   274.284000 ms
+N allocs: 1000000, page_size: 2048, total: 442.622621 Mb(aligned: 445.962181 Mb), avg_alloc_size: 464.123457, ===>   237.915000 ms
+N allocs: 1000000, page_size: 4096, total: 441.624373 Mb(aligned: 444.963387 Mb), avg_alloc_size: 463.076719, ===>   201.104000 ms
+N allocs: 1000000, page_size: 8192, total: 442.884728 Mb(aligned: 446.224289 Mb), avg_alloc_size: 464.398297, ===>   98.264000 ms
+N allocs: 1000000, page_size: 16384, total: 442.531906 Mb(aligned: 445.870728 Mb), avg_alloc_size: 464.028336, ===>   49.752000 ms
+N allocs: 1000000, page_size: 32768, total: 441.674200 Mb(aligned: 445.014442 Mb), avg_alloc_size: 463.128966, ===>   27.788000 ms
+N allocs: 1000000, page_size: 65536, total: 442.258403 Mb(aligned: 445.603493 Mb), avg_alloc_size: 463.741547, ===>   17.483000 ms
+N allocs: 1000000, page_size: 131072, total: 442.240541 Mb(aligned: 445.585312 Mb), avg_alloc_size: 463.722817, ===>   11.453000 ms
+N allocs: 1000000, page_size: 262144, total: 441.734515 Mb(aligned: 445.074089 Mb), avg_alloc_size: 463.192211, ===>   8.622000 ms
+N allocs: 1000000, page_size: 524288, total: 442.582229 Mb(aligned: 445.922569 Mb), avg_alloc_size: 464.081103, ===>   6.806000 ms
+N allocs: 1000000, page_size: 1048576, total: 442.525124 Mb(aligned: 445.867729 Mb), avg_alloc_size: 464.021224, ===>   5.613000 ms
+N allocs: 1000000, page_size: 2097152, total: 442.232658 Mb(aligned: 445.572487 Mb), avg_alloc_size: 463.714552, ===>   5.064000 ms
+N allocs: 1000000, page_size: 4194304, total: 441.434724 Mb(aligned: 444.773659 Mb), avg_alloc_size: 462.877857, ===>   4.891000 ms
+N allocs: 1000000, page_size: 8388608, total: 442.062732 Mb(aligned: 445.405579 Mb), avg_alloc_size: 463.536371, ===>   4.599000 ms
+N allocs: 1000000, page_size: 16777216, total: 441.676377 Mb(aligned: 445.018333 Mb), avg_alloc_size: 463.131249, ===>   4.477000 ms
+N allocs: 1000000, page_size: 33554432, total: 441.374264 Mb(aligned: 444.717178 Mb), avg_alloc_size: 462.814460, ===>   4.536000 ms
+N allocs: 1000000, page_size: 67108864, total: 443.195783 Mb(aligned: 446.536972 Mb), avg_alloc_size: 464.724461, ===>   4.489000 ms
+
+========= AVG alloc (514)=================
+N allocs: 1000000, page_size: 256, total: 488.557033 Mb(aligned: 491.893387 Mb), avg_alloc_size: 512.289179, ===>   326.071000 ms
+N allocs: 1000000, page_size: 512, total: 489.576033 Mb(aligned: 492.915024 Mb), avg_alloc_size: 513.357678, ===>   320.390000 ms
+N allocs: 1000000, page_size: 1024, total: 490.328522 Mb(aligned: 493.670120 Mb), avg_alloc_size: 514.146720, ===>   302.743000 ms
+N allocs: 1000000, page_size: 2048, total: 490.486240 Mb(aligned: 493.825470 Mb), avg_alloc_size: 514.312100, ===>   273.175000 ms
+N allocs: 1000000, page_size: 4096, total: 489.167253 Mb(aligned: 492.507454 Mb), avg_alloc_size: 512.929042, ===>   228.874000 ms
+N allocs: 1000000, page_size: 8192, total: 489.365987 Mb(aligned: 492.707352 Mb), avg_alloc_size: 513.137429, ===>   109.078000 ms
+N allocs: 1000000, page_size: 16384, total: 489.904478 Mb(aligned: 493.246101 Mb), avg_alloc_size: 513.702078, ===>   58.876000 ms
+N allocs: 1000000, page_size: 32768, total: 489.832891 Mb(aligned: 493.175987 Mb), avg_alloc_size: 513.627014, ===>   30.510000 ms
+N allocs: 1000000, page_size: 65536, total: 490.264410 Mb(aligned: 493.604195 Mb), avg_alloc_size: 514.079494, ===>   18.972000 ms
+N allocs: 1000000, page_size: 131072, total: 489.520676 Mb(aligned: 492.863098 Mb), avg_alloc_size: 513.299632, ===>   12.351000 ms
+N allocs: 1000000, page_size: 262144, total: 489.697705 Mb(aligned: 493.038757 Mb), avg_alloc_size: 513.485261, ===>   9.357000 ms
+N allocs: 1000000, page_size: 524288, total: 490.679986 Mb(aligned: 494.016373 Mb), avg_alloc_size: 514.515257, ===>   6.862000 ms
+N allocs: 1000000, page_size: 1048576, total: 489.115907 Mb(aligned: 492.458054 Mb), avg_alloc_size: 512.875201, ===>   6.021000 ms
+N allocs: 1000000, page_size: 2097152, total: 489.438006 Mb(aligned: 492.777695 Mb), avg_alloc_size: 513.212947, ===>   5.258000 ms
+N allocs: 1000000, page_size: 4194304, total: 489.182219 Mb(aligned: 492.523453 Mb), avg_alloc_size: 512.944734, ===>   4.803000 ms
+N allocs: 1000000, page_size: 8388608, total: 488.724001 Mb(aligned: 492.062111 Mb), avg_alloc_size: 512.464258, ===>   4.749000 ms
+N allocs: 1000000, page_size: 16777216, total: 489.470737 Mb(aligned: 492.812973 Mb), avg_alloc_size: 513.247267, ===>   4.511000 ms
+N allocs: 1000000, page_size: 33554432, total: 489.618177 Mb(aligned: 492.959541 Mb), avg_alloc_size: 513.401870, ===>   4.502000 ms
+N allocs: 1000000, page_size: 67108864, total: 489.441779 Mb(aligned: 492.780952 Mb), avg_alloc_size: 513.216903, ===>   4.439000 ms
+
+========= AVG alloc (564)=================
+N allocs: 1000000, page_size: 256, total: 537.063677 Mb(aligned: 540.405945 Mb), avg_alloc_size: 563.152082, ===>   352.606000 ms
+N allocs: 1000000, page_size: 512, total: 537.132006 Mb(aligned: 540.471802 Mb), avg_alloc_size: 563.223730, ===>   347.039000 ms
+N allocs: 1000000, page_size: 1024, total: 537.980287 Mb(aligned: 541.319191 Mb), avg_alloc_size: 564.113217, ===>   332.407000 ms
+N allocs: 1000000, page_size: 2048, total: 537.394607 Mb(aligned: 540.733307 Mb), avg_alloc_size: 563.499087, ===>   300.564000 ms
+N allocs: 1000000, page_size: 4096, total: 536.583076 Mb(aligned: 539.923874 Mb), avg_alloc_size: 562.648135, ===>   260.953000 ms
+N allocs: 1000000, page_size: 8192, total: 536.470692 Mb(aligned: 539.813232 Mb), avg_alloc_size: 562.530292, ===>   124.056000 ms
+N allocs: 1000000, page_size: 16384, total: 537.693289 Mb(aligned: 541.031250 Mb), avg_alloc_size: 563.812278, ===>   62.711000 ms
+N allocs: 1000000, page_size: 32768, total: 538.027436 Mb(aligned: 541.367432 Mb), avg_alloc_size: 564.162657, ===>   35.857000 ms
+N allocs: 1000000, page_size: 65536, total: 537.729884 Mb(aligned: 541.072166 Mb), avg_alloc_size: 563.850651, ===>   20.584000 ms
+N allocs: 1000000, page_size: 131072, total: 536.933451 Mb(aligned: 540.276711 Mb), avg_alloc_size: 563.015530, ===>   12.875000 ms
+N allocs: 1000000, page_size: 262144, total: 537.608350 Mb(aligned: 540.950989 Mb), avg_alloc_size: 563.723213, ===>   10.247000 ms
+N allocs: 1000000, page_size: 524288, total: 536.852794 Mb(aligned: 540.191734 Mb), avg_alloc_size: 562.930955, ===>   7.103000 ms
+N allocs: 1000000, page_size: 1048576, total: 537.450846 Mb(aligned: 540.793068 Mb), avg_alloc_size: 563.558058, ===>   5.932000 ms
+N allocs: 1000000, page_size: 2097152, total: 536.649581 Mb(aligned: 539.990158 Mb), avg_alloc_size: 562.717871, ===>   7.417000 ms
+N allocs: 1000000, page_size: 4194304, total: 537.269957 Mb(aligned: 540.606529 Mb), avg_alloc_size: 563.368382, ===>   4.906000 ms
+N allocs: 1000000, page_size: 8388608, total: 537.949415 Mb(aligned: 541.290962 Mb), avg_alloc_size: 564.080846, ===>   4.715000 ms
+N allocs: 1000000, page_size: 16777216, total: 536.066664 Mb(aligned: 539.408173 Mb), avg_alloc_size: 562.106638, ===>   4.515000 ms
+N allocs: 1000000, page_size: 33554432, total: 537.722272 Mb(aligned: 541.063484 Mb), avg_alloc_size: 563.842669, ===>   4.667000 ms
+N allocs: 1000000, page_size: 67108864, total: 536.359023 Mb(aligned: 539.696968 Mb), avg_alloc_size: 562.413199, ===>   4.485000 ms
+
+========= AVG alloc (614)=================
+N allocs: 1000000, page_size: 256, total: 585.672002 Mb(aligned: 589.010735 Mb), avg_alloc_size: 614.121605, ===>   374.412000 ms
+N allocs: 1000000, page_size: 512, total: 585.395926 Mb(aligned: 588.737862 Mb), avg_alloc_size: 613.832119, ===>   390.770000 ms
+N allocs: 1000000, page_size: 1024, total: 584.204941 Mb(aligned: 587.549370 Mb), avg_alloc_size: 612.583280, ===>   370.726000 ms
+N allocs: 1000000, page_size: 2048, total: 585.898392 Mb(aligned: 589.238350 Mb), avg_alloc_size: 614.358992, ===>   332.708000 ms
+N allocs: 1000000, page_size: 4096, total: 585.929925 Mb(aligned: 589.268997 Mb), avg_alloc_size: 614.392057, ===>   290.754000 ms
+N allocs: 1000000, page_size: 8192, total: 584.412412 Mb(aligned: 587.751236 Mb), avg_alloc_size: 612.800829, ===>   137.782000 ms
+N allocs: 1000000, page_size: 16384, total: 585.559512 Mb(aligned: 588.897751 Mb), avg_alloc_size: 614.003651, ===>   76.659000 ms
+N allocs: 1000000, page_size: 32768, total: 585.699438 Mb(aligned: 589.038177 Mb), avg_alloc_size: 614.150374, ===>   38.724000 ms
+N allocs: 1000000, page_size: 65536, total: 585.192490 Mb(aligned: 588.532921 Mb), avg_alloc_size: 613.618800, ===>   24.561000 ms
+N allocs: 1000000, page_size: 131072, total: 585.933824 Mb(aligned: 589.276482 Mb), avg_alloc_size: 614.396145, ===>   14.148000 ms
+N allocs: 1000000, page_size: 262144, total: 585.084268 Mb(aligned: 588.421951 Mb), avg_alloc_size: 613.505321, ===>   10.226000 ms
+N allocs: 1000000, page_size: 524288, total: 584.611555 Mb(aligned: 587.948822 Mb), avg_alloc_size: 613.009646, ===>   7.338000 ms
+N allocs: 1000000, page_size: 1048576, total: 585.514764 Mb(aligned: 588.853462 Mb), avg_alloc_size: 613.956729, ===>   6.330000 ms
+N allocs: 1000000, page_size: 2097152, total: 584.058578 Mb(aligned: 587.399612 Mb), avg_alloc_size: 612.429807, ===>   5.433000 ms
+N allocs: 1000000, page_size: 4194304, total: 584.499351 Mb(aligned: 587.840202 Mb), avg_alloc_size: 612.891991, ===>   4.917000 ms
+N allocs: 1000000, page_size: 8388608, total: 584.692427 Mb(aligned: 588.035492 Mb), avg_alloc_size: 613.094446, ===>   4.841000 ms
+N allocs: 1000000, page_size: 16777216, total: 584.927345 Mb(aligned: 588.270012 Mb), avg_alloc_size: 613.340776, ===>   4.622000 ms
+N allocs: 1000000, page_size: 33554432, total: 584.704030 Mb(aligned: 588.044449 Mb), avg_alloc_size: 613.106613, ===>   4.523000 ms
+N allocs: 1000000, page_size: 67108864, total: 585.373362 Mb(aligned: 588.716400 Mb), avg_alloc_size: 613.808458, ===>   4.489000 ms
+
+========= AVG alloc (664)=================
+N allocs: 1000000, page_size: 256, total: 633.351173 Mb(aligned: 636.694931 Mb), avg_alloc_size: 664.116840, ===>   399.916000 ms
+N allocs: 1000000, page_size: 512, total: 632.492216 Mb(aligned: 635.832840 Mb), avg_alloc_size: 663.216158, ===>   399.188000 ms
+N allocs: 1000000, page_size: 1024, total: 632.646338 Mb(aligned: 635.988342 Mb), avg_alloc_size: 663.377767, ===>   390.742000 ms
+N allocs: 1000000, page_size: 2048, total: 633.672892 Mb(aligned: 637.012962 Mb), avg_alloc_size: 664.454186, ===>   373.675000 ms
+N allocs: 1000000, page_size: 4096, total: 632.472383 Mb(aligned: 635.813171 Mb), avg_alloc_size: 663.195362, ===>   316.073000 ms
+N allocs: 1000000, page_size: 8192, total: 632.166831 Mb(aligned: 635.509361 Mb), avg_alloc_size: 662.874967, ===>   151.203000 ms
+N allocs: 1000000, page_size: 16384, total: 633.621715 Mb(aligned: 636.961098 Mb), avg_alloc_size: 664.400523, ===>   78.521000 ms
+N allocs: 1000000, page_size: 32768, total: 633.244154 Mb(aligned: 636.583702 Mb), avg_alloc_size: 664.004622, ===>   40.183000 ms
+N allocs: 1000000, page_size: 65536, total: 632.918678 Mb(aligned: 636.256599 Mb), avg_alloc_size: 663.663336, ===>   24.335000 ms
+N allocs: 1000000, page_size: 131072, total: 632.742376 Mb(aligned: 636.084900 Mb), avg_alloc_size: 663.478470, ===>   14.506000 ms
+N allocs: 1000000, page_size: 262144, total: 632.192795 Mb(aligned: 635.533318 Mb), avg_alloc_size: 662.902192, ===>   11.105000 ms
+N allocs: 1000000, page_size: 524288, total: 632.801276 Mb(aligned: 636.139481 Mb), avg_alloc_size: 663.540231, ===>   7.935000 ms
+N allocs: 1000000, page_size: 1048576, total: 633.334344 Mb(aligned: 636.673553 Mb), avg_alloc_size: 664.099193, ===>   6.196000 ms
+N allocs: 1000000, page_size: 2097152, total: 633.217838 Mb(aligned: 636.560707 Mb), avg_alloc_size: 663.977028, ===>   5.339000 ms
+N allocs: 1000000, page_size: 4194304, total: 632.850748 Mb(aligned: 636.192375 Mb), avg_alloc_size: 663.592106, ===>   6.907000 ms
+N allocs: 1000000, page_size: 8388608, total: 633.252483 Mb(aligned: 636.590744 Mb), avg_alloc_size: 664.013356, ===>   4.696000 ms
+N allocs: 1000000, page_size: 16777216, total: 632.370237 Mb(aligned: 635.714462 Mb), avg_alloc_size: 663.088254, ===>   4.517000 ms
+N allocs: 1000000, page_size: 33554432, total: 631.205686 Mb(aligned: 634.545212 Mb), avg_alloc_size: 661.867133, ===>   4.529000 ms
+N allocs: 1000000, page_size: 67108864, total: 633.145161 Mb(aligned: 636.485474 Mb), avg_alloc_size: 663.900820, ===>   4.566000 ms
+
+========= AVG alloc (714)=================
+N allocs: 1000000, page_size: 256, total: 681.164270 Mb(aligned: 684.503548 Mb), avg_alloc_size: 714.252506, ===>   418.691000 ms
+N allocs: 1000000, page_size: 512, total: 679.524317 Mb(aligned: 682.863197 Mb), avg_alloc_size: 712.532890, ===>   425.802000 ms
+N allocs: 1000000, page_size: 1024, total: 679.716823 Mb(aligned: 683.052048 Mb), avg_alloc_size: 712.734747, ===>   417.071000 ms
+N allocs: 1000000, page_size: 2048, total: 679.718367 Mb(aligned: 683.056046 Mb), avg_alloc_size: 712.736366, ===>   396.693000 ms
+N allocs: 1000000, page_size: 4096, total: 680.564977 Mb(aligned: 683.903984 Mb), avg_alloc_size: 713.624101, ===>   350.563000 ms
+N allocs: 1000000, page_size: 8192, total: 680.801011 Mb(aligned: 684.141991 Mb), avg_alloc_size: 713.871601, ===>   166.614000 ms
+N allocs: 1000000, page_size: 16384, total: 678.961798 Mb(aligned: 682.303085 Mb), avg_alloc_size: 711.943046, ===>   86.706000 ms
+N allocs: 1000000, page_size: 32768, total: 679.409775 Mb(aligned: 682.747864 Mb), avg_alloc_size: 712.412784, ===>   43.843000 ms
+N allocs: 1000000, page_size: 65536, total: 681.667949 Mb(aligned: 685.010475 Mb), avg_alloc_size: 714.780651, ===>   26.274000 ms
+N allocs: 1000000, page_size: 131072, total: 680.538239 Mb(aligned: 683.881386 Mb), avg_alloc_size: 713.596065, ===>   15.362000 ms
+N allocs: 1000000, page_size: 262144, total: 680.297820 Mb(aligned: 683.637405 Mb), avg_alloc_size: 713.343967, ===>   11.373000 ms
+N allocs: 1000000, page_size: 524288, total: 680.406691 Mb(aligned: 683.744774 Mb), avg_alloc_size: 713.458126, ===>   8.281000 ms
+N allocs: 1000000, page_size: 1048576, total: 681.130269 Mb(aligned: 684.467003 Mb), avg_alloc_size: 714.216853, ===>   6.335000 ms
+N allocs: 1000000, page_size: 2097152, total: 681.278529 Mb(aligned: 684.618683 Mb), avg_alloc_size: 714.372315, ===>   5.448000 ms
+N allocs: 1000000, page_size: 4194304, total: 680.364829 Mb(aligned: 683.705711 Mb), avg_alloc_size: 713.414231, ===>   5.137000 ms
+N allocs: 1000000, page_size: 8388608, total: 680.215087 Mb(aligned: 683.555664 Mb), avg_alloc_size: 713.257215, ===>   4.717000 ms
+N allocs: 1000000, page_size: 16777216, total: 680.612881 Mb(aligned: 683.956306 Mb), avg_alloc_size: 713.674332, ===>   4.530000 ms
+N allocs: 1000000, page_size: 33554432, total: 680.320827 Mb(aligned: 683.663002 Mb), avg_alloc_size: 713.368092, ===>   4.517000 ms
+N allocs: 1000000, page_size: 67108864, total: 681.256029 Mb(aligned: 684.597191 Mb), avg_alloc_size: 714.348722, ===>   4.597000 ms
+
+========= AVG alloc (764)=================
+N allocs: 1000000, page_size: 256, total: 727.330761 Mb(aligned: 730.669052 Mb), avg_alloc_size: 762.661580, ===>   440.484000 ms
+N allocs: 1000000, page_size: 512, total: 727.332595 Mb(aligned: 730.669327 Mb), avg_alloc_size: 762.663503, ===>   454.286000 ms
+N allocs: 1000000, page_size: 1024, total: 729.286590 Mb(aligned: 732.628036 Mb), avg_alloc_size: 764.712415, ===>   445.830000 ms
+N allocs: 1000000, page_size: 2048, total: 728.496655 Mb(aligned: 731.837959 Mb), avg_alloc_size: 763.884109, ===>   429.546000 ms
+N allocs: 1000000, page_size: 4096, total: 726.950457 Mb(aligned: 730.291595 Mb), avg_alloc_size: 762.262802, ===>   378.662000 ms
+N allocs: 1000000, page_size: 8192, total: 727.665267 Mb(aligned: 731.003319 Mb), avg_alloc_size: 763.012335, ===>   178.048000 ms
+N allocs: 1000000, page_size: 16384, total: 726.819585 Mb(aligned: 730.160820 Mb), avg_alloc_size: 762.125573, ===>   89.761000 ms
+N allocs: 1000000, page_size: 32768, total: 727.269334 Mb(aligned: 730.610291 Mb), avg_alloc_size: 762.597169, ===>   46.988000 ms
+N allocs: 1000000, page_size: 65536, total: 726.828325 Mb(aligned: 730.166992 Mb), avg_alloc_size: 762.134738, ===>   27.309000 ms
+N allocs: 1000000, page_size: 131072, total: 728.389928 Mb(aligned: 731.731163 Mb), avg_alloc_size: 763.772197, ===>   16.973000 ms
+N allocs: 1000000, page_size: 262144, total: 728.408302 Mb(aligned: 731.750923 Mb), avg_alloc_size: 763.791464, ===>   11.995000 ms
+N allocs: 1000000, page_size: 524288, total: 727.703934 Mb(aligned: 731.041481 Mb), avg_alloc_size: 763.052880, ===>   8.360000 ms
+N allocs: 1000000, page_size: 1048576, total: 728.503158 Mb(aligned: 731.842232 Mb), avg_alloc_size: 763.890927, ===>   6.810000 ms
+N allocs: 1000000, page_size: 2097152, total: 727.990105 Mb(aligned: 731.328293 Mb), avg_alloc_size: 763.352952, ===>   5.519000 ms
+N allocs: 1000000, page_size: 4194304, total: 728.215819 Mb(aligned: 731.556686 Mb), avg_alloc_size: 763.589631, ===>   4.979000 ms
+N allocs: 1000000, page_size: 8388608, total: 728.759569 Mb(aligned: 732.100906 Mb), avg_alloc_size: 764.159794, ===>   4.855000 ms
+N allocs: 1000000, page_size: 16777216, total: 728.245015 Mb(aligned: 731.587212 Mb), avg_alloc_size: 763.620245, ===>   4.633000 ms
+N allocs: 1000000, page_size: 33554432, total: 728.529813 Mb(aligned: 731.871231 Mb), avg_alloc_size: 763.918877, ===>   4.585000 ms
+N allocs: 1000000, page_size: 67108864, total: 728.955338 Mb(aligned: 732.295654 Mb), avg_alloc_size: 764.365073, ===>   4.535000 ms
+
+========= AVG alloc (814)=================
+N allocs: 1000000, page_size: 256, total: 776.490396 Mb(aligned: 779.831924 Mb), avg_alloc_size: 814.209193, ===>   491.124000 ms
+N allocs: 1000000, page_size: 512, total: 775.692121 Mb(aligned: 779.031036 Mb), avg_alloc_size: 813.372141, ===>   474.584000 ms
+N allocs: 1000000, page_size: 1024, total: 777.223722 Mb(aligned: 780.561180 Mb), avg_alloc_size: 814.978141, ===>   471.177000 ms
+N allocs: 1000000, page_size: 2048, total: 777.294340 Mb(aligned: 780.634285 Mb), avg_alloc_size: 815.052190, ===>   457.290000 ms
+N allocs: 1000000, page_size: 4096, total: 775.701724 Mb(aligned: 779.040108 Mb), avg_alloc_size: 813.382211, ===>   406.706000 ms
+N allocs: 1000000, page_size: 8192, total: 776.772156 Mb(aligned: 780.110344 Mb), avg_alloc_size: 814.504640, ===>   191.633000 ms
+N allocs: 1000000, page_size: 16384, total: 776.019688 Mb(aligned: 779.361450 Mb), avg_alloc_size: 813.715620, ===>   94.532000 ms
+N allocs: 1000000, page_size: 32768, total: 776.017376 Mb(aligned: 779.358940 Mb), avg_alloc_size: 813.713196, ===>   51.073000 ms
+N allocs: 1000000, page_size: 65536, total: 775.026714 Mb(aligned: 778.365799 Mb), avg_alloc_size: 812.674412, ===>   29.000000 ms
+N allocs: 1000000, page_size: 131072, total: 775.409518 Mb(aligned: 778.750786 Mb), avg_alloc_size: 813.075811, ===>   20.255000 ms
+N allocs: 1000000, page_size: 262144, total: 776.405538 Mb(aligned: 779.743622 Mb), avg_alloc_size: 814.120213, ===>   12.678000 ms
+N allocs: 1000000, page_size: 524288, total: 776.265884 Mb(aligned: 779.611954 Mb), avg_alloc_size: 813.973776, ===>   8.725000 ms
+N allocs: 1000000, page_size: 1048576, total: 776.478640 Mb(aligned: 779.821777 Mb), avg_alloc_size: 814.196866, ===>   6.658000 ms
+N allocs: 1000000, page_size: 2097152, total: 775.150039 Mb(aligned: 778.489540 Mb), avg_alloc_size: 812.803727, ===>   5.864000 ms
+N allocs: 1000000, page_size: 4194304, total: 777.066885 Mb(aligned: 780.411316 Mb), avg_alloc_size: 814.813686, ===>   5.058000 ms
+N allocs: 1000000, page_size: 8388608, total: 775.431574 Mb(aligned: 778.773491 Mb), avg_alloc_size: 813.098938, ===>   4.862000 ms
+N allocs: 1000000, page_size: 16777216, total: 775.680626 Mb(aligned: 779.022018 Mb), avg_alloc_size: 813.360088, ===>   4.741000 ms
+N allocs: 1000000, page_size: 33554432, total: 774.814551 Mb(aligned: 778.154335 Mb), avg_alloc_size: 812.451943, ===>   4.599000 ms
+N allocs: 1000000, page_size: 67108864, total: 775.148878 Mb(aligned: 778.490463 Mb), avg_alloc_size: 812.802510, ===>   4.473000 ms
+
+========= AVG alloc (864)=================
+N allocs: 1000000, page_size: 256, total: 823.654564 Mb(aligned: 826.993027 Mb), avg_alloc_size: 863.664408, ===>   487.698000 ms
+N allocs: 1000000, page_size: 512, total: 823.941590 Mb(aligned: 827.278046 Mb), avg_alloc_size: 863.965377, ===>   496.837000 ms
+N allocs: 1000000, page_size: 1024, total: 823.403926 Mb(aligned: 826.743111 Mb), avg_alloc_size: 863.401595, ===>   496.029000 ms
+N allocs: 1000000, page_size: 2048, total: 822.483974 Mb(aligned: 825.824104 Mb), avg_alloc_size: 862.436956, ===>   482.898000 ms
+N allocs: 1000000, page_size: 4096, total: 823.952525 Mb(aligned: 827.288567 Mb), avg_alloc_size: 863.976843, ===>   439.667000 ms
+N allocs: 1000000, page_size: 8192, total: 822.586002 Mb(aligned: 825.925156 Mb), avg_alloc_size: 862.543940, ===>   207.093000 ms
+N allocs: 1000000, page_size: 16384, total: 823.680079 Mb(aligned: 827.020561 Mb), avg_alloc_size: 863.691163, ===>   103.079000 ms
+N allocs: 1000000, page_size: 32768, total: 823.308814 Mb(aligned: 826.648735 Mb), avg_alloc_size: 863.301863, ===>   54.109000 ms
+N allocs: 1000000, page_size: 65536, total: 824.434669 Mb(aligned: 827.772026 Mb), avg_alloc_size: 864.482407, ===>   32.621000 ms
+N allocs: 1000000, page_size: 131072, total: 823.781628 Mb(aligned: 827.125923 Mb), avg_alloc_size: 863.797644, ===>   19.069000 ms
+N allocs: 1000000, page_size: 262144, total: 822.328403 Mb(aligned: 825.666580 Mb), avg_alloc_size: 862.273828, ===>   13.406000 ms
+N allocs: 1000000, page_size: 524288, total: 824.422851 Mb(aligned: 827.759842 Mb), avg_alloc_size: 864.470015, ===>   9.908000 ms
+N allocs: 1000000, page_size: 1048576, total: 823.403429 Mb(aligned: 826.742180 Mb), avg_alloc_size: 863.401074, ===>   6.786000 ms
+N allocs: 1000000, page_size: 2097152, total: 824.049543 Mb(aligned: 827.389671 Mb), avg_alloc_size: 864.078574, ===>   5.706000 ms
+N allocs: 1000000, page_size: 4194304, total: 824.688080 Mb(aligned: 828.025177 Mb), avg_alloc_size: 864.748128, ===>   5.038000 ms
+N allocs: 1000000, page_size: 8388608, total: 823.365769 Mb(aligned: 826.704796 Mb), avg_alloc_size: 863.361585, ===>   4.918000 ms
+N allocs: 1000000, page_size: 16777216, total: 824.390974 Mb(aligned: 827.731041 Mb), avg_alloc_size: 864.436590, ===>   4.586000 ms
+N allocs: 1000000, page_size: 33554432, total: 823.676941 Mb(aligned: 827.017563 Mb), avg_alloc_size: 863.687872, ===>   4.571000 ms
+N allocs: 1000000, page_size: 67108864, total: 823.451657 Mb(aligned: 826.792984 Mb), avg_alloc_size: 863.451645, ===>   4.641000 ms
+
+========= AVG alloc (914)=================
+N allocs: 1000000, page_size: 256, total: 870.945954 Mb(aligned: 874.286690 Mb), avg_alloc_size: 913.253025, ===>   504.979000 ms
+N allocs: 1000000, page_size: 512, total: 870.641375 Mb(aligned: 873.981598 Mb), avg_alloc_size: 912.933650, ===>   514.001000 ms
+N allocs: 1000000, page_size: 1024, total: 872.609871 Mb(aligned: 875.949867 Mb), avg_alloc_size: 914.997768, ===>   523.616000 ms
+N allocs: 1000000, page_size: 2048, total: 871.095588 Mb(aligned: 874.434280 Mb), avg_alloc_size: 913.409927, ===>   515.997000 ms
+N allocs: 1000000, page_size: 4096, total: 871.882449 Mb(aligned: 875.224930 Mb), avg_alloc_size: 914.235011, ===>   469.622000 ms
+N allocs: 1000000, page_size: 8192, total: 872.010816 Mb(aligned: 875.349007 Mb), avg_alloc_size: 914.369613, ===>   222.124000 ms
+N allocs: 1000000, page_size: 16384, total: 872.502178 Mb(aligned: 875.842613 Mb), avg_alloc_size: 914.884844, ===>   110.206000 ms
+N allocs: 1000000, page_size: 32768, total: 870.630005 Mb(aligned: 873.971451 Mb), avg_alloc_size: 912.921728, ===>   55.496000 ms
+N allocs: 1000000, page_size: 65536, total: 873.025483 Mb(aligned: 876.365417 Mb), avg_alloc_size: 915.433569, ===>   32.883000 ms
+N allocs: 1000000, page_size: 131072, total: 872.590198 Mb(aligned: 875.930916 Mb), avg_alloc_size: 914.977139, ===>   18.968000 ms
+N allocs: 1000000, page_size: 262144, total: 872.080509 Mb(aligned: 875.420860 Mb), avg_alloc_size: 914.442692, ===>   14.304000 ms
+N allocs: 1000000, page_size: 524288, total: 870.290378 Mb(aligned: 873.630959 Mb), avg_alloc_size: 912.565603, ===>   9.342000 ms
+N allocs: 1000000, page_size: 1048576, total: 871.676820 Mb(aligned: 875.015739 Mb), avg_alloc_size: 914.019393, ===>   7.062000 ms
+N allocs: 1000000, page_size: 2097152, total: 870.559667 Mb(aligned: 873.896553 Mb), avg_alloc_size: 912.847973, ===>   5.711000 ms
+N allocs: 1000000, page_size: 4194304, total: 870.946681 Mb(aligned: 874.287598 Mb), avg_alloc_size: 913.253787, ===>   5.298000 ms
+N allocs: 1000000, page_size: 8388608, total: 870.871575 Mb(aligned: 874.210564 Mb), avg_alloc_size: 913.175033, ===>   4.771000 ms
+N allocs: 1000000, page_size: 16777216, total: 869.344605 Mb(aligned: 872.684616 Mb), avg_alloc_size: 911.573889, ===>   4.612000 ms
+N allocs: 1000000, page_size: 33554432, total: 870.985291 Mb(aligned: 874.326820 Mb), avg_alloc_size: 913.294273, ===>   4.580000 ms
+N allocs: 1000000, page_size: 67108864, total: 872.544744 Mb(aligned: 875.884140 Mb), avg_alloc_size: 914.929477, ===>   4.631000 ms
+
+========= AVG alloc (964)=================
+N allocs: 1000000, page_size: 256, total: 920.324357 Mb(aligned: 923.664345 Mb), avg_alloc_size: 965.030033, ===>   530.037000 ms
+N allocs: 1000000, page_size: 512, total: 919.607716 Mb(aligned: 922.946114 Mb), avg_alloc_size: 964.278580, ===>   538.494000 ms
+N allocs: 1000000, page_size: 1024, total: 920.180116 Mb(aligned: 923.519722 Mb), avg_alloc_size: 964.878785, ===>   547.463000 ms
+N allocs: 1000000, page_size: 2048, total: 917.699451 Mb(aligned: 921.038567 Mb), avg_alloc_size: 962.277620, ===>   539.797000 ms
+N allocs: 1000000, page_size: 4096, total: 917.673480 Mb(aligned: 921.011253 Mb), avg_alloc_size: 962.250387, ===>   495.282000 ms
+N allocs: 1000000, page_size: 8192, total: 918.677371 Mb(aligned: 922.016144 Mb), avg_alloc_size: 963.303043, ===>   237.290000 ms
+N allocs: 1000000, page_size: 16384, total: 917.471758 Mb(aligned: 920.810036 Mb), avg_alloc_size: 962.038866, ===>   116.308000 ms
+N allocs: 1000000, page_size: 32768, total: 915.930769 Mb(aligned: 919.275703 Mb), avg_alloc_size: 960.423022, ===>   60.376000 ms
+N allocs: 1000000, page_size: 65536, total: 919.582687 Mb(aligned: 922.928474 Mb), avg_alloc_size: 964.252336, ===>   35.842000 ms
+N allocs: 1000000, page_size: 131072, total: 919.642428 Mb(aligned: 922.981133 Mb), avg_alloc_size: 964.314979, ===>   20.645000 ms
+N allocs: 1000000, page_size: 262144, total: 919.771087 Mb(aligned: 923.113014 Mb), avg_alloc_size: 964.449887, ===>   13.923000 ms
+N allocs: 1000000, page_size: 524288, total: 918.290472 Mb(aligned: 921.632881 Mb), avg_alloc_size: 962.897350, ===>   11.560000 ms
+N allocs: 1000000, page_size: 1048576, total: 918.747081 Mb(aligned: 922.084854 Mb), avg_alloc_size: 963.376139, ===>   7.060000 ms
+N allocs: 1000000, page_size: 2097152, total: 919.104427 Mb(aligned: 922.442963 Mb), avg_alloc_size: 963.750844, ===>   5.887000 ms
+N allocs: 1000000, page_size: 4194304, total: 920.260906 Mb(aligned: 923.600937 Mb), avg_alloc_size: 964.963500, ===>   5.163000 ms
+N allocs: 1000000, page_size: 8388608, total: 918.657487 Mb(aligned: 921.994980 Mb), avg_alloc_size: 963.282193, ===>   4.917000 ms
+N allocs: 1000000, page_size: 16777216, total: 919.296933 Mb(aligned: 922.635651 Mb), avg_alloc_size: 963.952701, ===>   4.620000 ms
+N allocs: 1000000, page_size: 33554432, total: 918.569483 Mb(aligned: 921.904686 Mb), avg_alloc_size: 963.189914, ===>   4.573000 ms
+N allocs: 1000000, page_size: 67108864, total: 917.793049 Mb(aligned: 921.132713 Mb), avg_alloc_size: 962.375764, ===>   4.654000 ms
+
+
+->> STATIC SIZE ALLOCAION TEST <<-
+N allocs: 1000000, page_size: 256, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   12.602000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 512, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   8.435000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 1024, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   9.422000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 2048, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   6.424000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 4096, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   5.445000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 8192, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   5.091000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 16384, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.800000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 32768, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.650000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 65536, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.571000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 131072, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.503000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 262144, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.495000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 524288, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.537000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 1048576, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.531000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 2097152, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.501000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 4194304, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.514000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 8388608, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.482000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 16777216, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.405000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 33554432, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.421000 ms
+----------------------------------------
+N allocs: 1000000, page_size: 67108864, total: 61.035156 Mb(aligned: 61.035156 Mb), avg_alloc_size: 64.000000, ===>   4.395000 ms
+----------------------------------------
