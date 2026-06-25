@@ -40,6 +40,16 @@
 
 #define MA_INT_ZEROED 0x1
 
+#define MA_O_ARENA_DYNAMIC 0
+#define MA_O_ARENA_STATIC 1
+#define MA_O_DYNAMIC_PAGE_SIZE 2
+
+#define MARENA_DYNAMIC_PAGE_SIZE_GROW_FACTOR 2
+
+#define MARENA_PAGEMISS_FACTOR 0.005f
+//#define PAGEMISS_PER_ALLOC(arena) ((float)(arena)->pagemiss_cnt_local / (float)(arena)->allocs_cnt_local)
+#define MARENA_PAGEMISS_PER_ALLOC(arena) ((float)(arena)->_pagemiss_cnt / (float)(arena)->_allocs_cnt)   // global counters
+
 // pointer to that struct is actual start of page, usable memory is at &page + sizeof(Page)
 //  'free' contains start address of free memory in that page
 typedef struct Page {
@@ -56,7 +66,12 @@ typedef struct {
     Page* start;    // TODO: some pages mey be full, in order not to iterate through them, maybe store some pointer to page that has free memory?
     Page* end;    
     size_t page_size;       // size for further allocations of page
-    //uint8_t flags;
+    int flags;
+    uint64_t _pagemiss_cnt;
+    uint64_t _allocs_cnt;
+#ifdef MARENA_DEBUG
+    uint64_t _page_size_grows_cnt;
+#endif
 } Arena;
 
 
@@ -68,7 +83,7 @@ Page* init_page(size_t size);
 Arena* arena_init_heap(size_t size);
 
 // allocates at least 'size' aligned bytes within 'arena' memory
-void* arena_alloc(Arena* arena, size_t size);
+void* arena__alloc_flags(Arena* arena, size_t size, int flags);
 
 // allocates at least 'size' aligned bytes within 'arena' memory, initialized to 0
 //void* arena_alloc_zero(Arena* arena, size_t size);
@@ -78,7 +93,7 @@ void* arena_alloc(Arena* arena, size_t size);
 void arena_free(Arena* arena);
 
 // Marks all pages as free
-void arena_reset(Arena* arena);
+void arena__reset_flags(Arena* arena, int flags);
 
 #endif // MARENA_H
 
@@ -107,50 +122,87 @@ Arena* arena_init_heap(size_t size)
     arena->page_size = size;
     return arena; 
 }
-#define arena_alloc(arena, size) arena__alloc(arena, size, 0);
+#define arena_alloc(arena, size) arena__alloc_flags(arena, size, 0)
 
 // TODO: performance is 10x worse then in arena_alloc(), optimise it
-#define arena_alloc_zero(arena, size) arena__alloc(arena, size, MA_INT_ZEROED);
+#define arena_alloc_zero(arena, size) arena__alloc_flags(arena, size, MA_INT_ZEROED)
 
-// allocate WITH flags
-void* arena__alloc(Arena* arena, size_t size, int flags)
+
+// alloc with internal flags
+void* arena__alloc_flags(Arena* arena, size_t size, int flags)
 {
     assert(arena != NULL);
-    size_t aligned_size = MA_ALIGN(size);
-    Page* page = arena->end;
-    Page* prev_page = NULL;
-    while (page != NULL && page->capacity + aligned_size > page->size) {
+    size_t size_aligned = MA_ALIGN(size);
+
+    Page* page;
+    Page* prev_page;
+
+    // init is a special case, no flags are checked, since in all of them at least 1 page must be allocated
+    // also first page allocation doesnt count as page miss
+    if (arena->start == NULL) {
+        if (arena->page_size <= 0) { arena->page_size = MA_DEFAULT_PAGE_SIZE; }
+        page = init_page(size_aligned > arena->page_size ? size_aligned : arena->page_size);    // TODO: if requested size > page_size, multiply by some factor?
+        arena->start = page;
+        arena->end = page;
+        goto alloc;
+    }
+
+    page = arena->end;
+    prev_page = NULL;
+    while (page != NULL && page->capacity + size_aligned > page->size) {
         prev_page = page;
         page = page->next;
     }
     // just allocate new page, if there are no free space left in pages
     if (page == NULL) {
-        if (arena->page_size <= 0) {
-            arena->page_size = MA_DEFAULT_PAGE_SIZE;
+        if (arena->flags & MA_O_ARENA_STATIC) {
+#ifdef MARENA_STATIC_RETURN_NULL_ON_FULL
+            return NULL;
+#else
+            fprintf(stderr, "Not enough memory in the arena for requested size (Arena set to STATIC)\n");
+            exit(1);
+#endif //MARENA_STATIC_DONT_ABORT_ON_FULL
+
         }
-        size_t alloc_size = (aligned_size > arena->page_size) ? (aligned_size*2) : arena->page_size;    // requested aligned_size can be > page_size, in that case allocate 2x of requested aligned_size
-                                                                                        // TODO: update page_size if aligned_size > page_size ?
-        page = init_page(alloc_size);
+
+        //arena->pagemiss_cnt_local += 1;
+        arena->_pagemiss_cnt += 1;
+        // grow page_size if allocations causes new page allocs frequently
+        if ((arena->flags & MA_O_DYNAMIC_PAGE_SIZE) && (MARENA_PAGEMISS_PER_ALLOC(arena) >= MARENA_PAGEMISS_FACTOR)) {
+            arena->page_size *= MARENA_DYNAMIC_PAGE_SIZE_GROW_FACTOR;  // TODO multiplication factor?
+            // reset counter, since we care only about local data (after last page alloc)
+            //arena->pagemiss_cnt_local = 0;
+            //arena->allocs_cnt_local = 0;
+
+        #ifdef MARENA_DEBUG
+            arena->_page_size_grow_cnt++;
+        #endif
+
+        }
+        size_t page_alloc_size = (size_aligned > arena->page_size) ? (size_aligned) : arena->page_size;    // TODO: if requested size > page_size, multiply by some factor?
+                                                                                                           // TODO: update page_size if size > page_size ?
+        page = init_page(page_alloc_size);
         if (prev_page != NULL) {
             prev_page->next = page; 
         }
-        // On init, 'start' and 'end' will both point to same page, but this is fine, since allocation happens only through 'end' ptr
-        if (arena->start == NULL) {
-            arena->start = page;
-        }
+        //arena->end = page;
     }
-    
-    // Without this arena->end would never go forward (i.e. would always point to arena->start), if allocating after arena_reset()
-    if (arena->end != page) { arena->end = page; }
 
-    page->capacity += aligned_size;
+alloc:
+    //arena->allocs_cnt_local++;
+
+    // after reset there may be some pages already allocated and linked, update in that case
+    if (arena->end != page) { arena->end = page; }
+    arena->_allocs_cnt++;
+    page->capacity += size_aligned;
     void* ret = page->start_free;
     if (flags & MA_INT_ZEROED) {
-        memset(ret, 0, aligned_size);
+        memset(ret, 0, size_aligned);
     }
-    page->start_free = (char*)page->start_free + aligned_size;
+    page->start_free = (char*)page->start_free + size_aligned;
     return ret;
 }
+
 
 void arena_free(Arena* arena) 
 {
@@ -172,8 +224,8 @@ void arena__reset_flag(Arena* arena, int flags)
     assert(arena != NULL);
     for (Page* page = arena->start; page != NULL; page = page->next) {
         if (flags & MA_INT_ZEROED) {
-            memset((char*)page + sizeof(Page), 0, page->capacity);  // memset only capacity bytes
-            //memset((char*)page + sizeof(Page), 0, page->size);  // TODO: test this, does performance and quality differ?
+            //memset((char*)page + sizeof(Page), 0, page->capacity);  // memset only capacity bytes
+            memset((char*)page + sizeof(Page), 0, page->size);  // TODO: test this, does performance and quality differ?
         }
 
         page->capacity = 0;
