@@ -17,6 +17,10 @@ usage: make_build_dir $(EXAMPLES_DIR)/usage.c
 make_build_dir:
 	mkdir -p ./build
 
+# main program for running tests
+tester: make_build_dir
+	$(CC) $(FLAGS) -o $(BUILD_DIR)/tester $(TESTS_DIR)/tester.c
+
 test_performance: make_build_dir marena.h $(TESTS_DIR)/test_performance.c
 	$(CC) $(FLAGS) -lm -o $(BUILD_DIR)/test_performance $(TESTS_DIR)/test_performance.c
 

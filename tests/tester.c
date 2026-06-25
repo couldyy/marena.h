@@ -15,9 +15,9 @@ char test_flags_expected_output[] = "Arena dynamic page size\ninit_page_size < c
 "Arena dynamic\nlast_page != start_page ? true\narena_reset()\narena.end == last_page(previous) ? true\n------------------------------\n"
 "Arena static\nArena static is full\n";
 
-#define BUILD_DIR "../build/"
+#define BUILD_DIR "./"
 #define BUILD_FLAGS "-Wall", "-Wextra", "-g", "-O0"
-#define TESTS_DIR "./"
+#define TESTS_DIR "../tests/"
 
 Test tests[] = {
     {
@@ -45,7 +45,7 @@ Test tests[] = {
 
 int main(int argc, char** argv)
 {
-    TESTER_REBUILD_YOURSELF(argc, argv);
+    TESTER_REBUILD_YOURSELF_ARGS(argc, argv, TESTS_DIR"tester.c");
     size_t tests_cnt = sizeof(tests)/sizeof(Test);
 
     int build_failed = tests_build(tests, tests_cnt, .async = true);
